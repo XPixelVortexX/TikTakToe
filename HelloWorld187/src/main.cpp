@@ -9,6 +9,8 @@
 #include "animations.h"
 
 level_container* Game;
+level_container* Player1;
+level_container* Player2;
 
 void setup() {
   Serial.begin(9600);
@@ -42,19 +44,46 @@ void normal_game() {
   anim_normal_game();
 
   while(true){
-    Game->create_next();                              //Level update
+    Game->create_next();                              // Level update
     
     Game->show();                                     // Show next level
 
-    if(!Game->check())break;                          //fail is restart   
+    if(!Game->check())break;                          // Fail is restart   
   }
 
   anim_fail();
   delete Game;
 }
 
+void mult_game()
+{
+  Player1 = new level_container();
+  Player2 = new level_container();
+  anim_mult_game();
+
+  while(true){
+    Player1->create_next();                       
+    
+    Player1->show();                                     
+
+    if(!Player1->check())break;
+
+    Player2->create_next();                       
+    
+    Player2->show();                                     
+
+    if(!Player2->check())break;                       
+  }
+
+  anim_fail();
+  delete Player1;
+  delete Player2;
+}
+
 void loop() {
   //test();
 
   normal_game();
+
+  //mult_game();
 }
