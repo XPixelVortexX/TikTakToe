@@ -37,18 +37,18 @@ void test()
   }
 }
 
-void game_loop() {
+void normal_game() {
+  Game = new level_container();
   while(true){
   Game->create_next();                              //Level update
     
-  if(!Game->check())return;                         //fail is restart   
+  if(!Game->check())break;                         //fail is restart   
   }
+  delete Game;
 }
 
 void loop() {
   //test();
 
-  Game = new level_container();
-  game_loop();
-  delete Game;
+  normal_game();
 }
