@@ -42,11 +42,11 @@ void normal_game() {
   anim_normal_game();
 
   while(true){
-  Game->create_next();                              //Level update
-  
-  Game->show();                                     // Show next level
+    Game->create_next();                              //Level update
+    
+    Game->show();                                     // Show next level
 
-  if(!Game->check())break;                          //fail is restart   
+    if(!Game->check())break;                          //fail is restart   
   }
 
   anim_fail();

@@ -17,6 +17,7 @@ class LED
         void off(){
             gpio_set_level(pin,0);
         }
+        
         void toggle(){
             if(gpio_get_level(pin)){
                 gpio_set_level(pin,0);
@@ -39,5 +40,29 @@ inline LED* LED8 = new LED(GPIO_NUM_32);
 
 
 inline LED* LED_MATRIX[9] = {LED0, LED1, LED2, LED3, LED4, LED5, LED6, LED7, LED8};
+
+void LED_MATRIX_ON()
+{
+    for (int i = 0; i < 9; i++) 
+        {
+            LED_MATRIX[i]->on();        
+        }
+}
+
+void LED_MATRIX_OFF()
+{
+    for (int i = 0; i < 9; i++) 
+        {
+            LED_MATRIX[i]->off();        
+        }
+}
+
+void LED_MATRIX_TOGGLE()
+{
+    for (int i = 0; i < 9; i++) 
+        {
+            LED_MATRIX[i]->toggle();        
+        }
+}
 
 #endif
