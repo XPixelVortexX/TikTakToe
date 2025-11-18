@@ -4,16 +4,40 @@
 #include <Arduino.h>
 #include <stdio.h>
 
-#define LED0 GPIO_NUM_23
-#define LED1 GPIO_NUM_17
-#define LED2 GPIO_NUM_16
-#define LED3 GPIO_NUM_13
-#define LED4 GPIO_NUM_14
-#define LED5 GPIO_NUM_26
-#define LED6 GPIO_NUM_25
-#define LED7 GPIO_NUM_33
-#define LED8 GPIO_NUM_32
+class LED
+{
+    public:
+        gpio_num_t pin;
+        LED(gpio_num_t pin):pin(pin){}     
+        
+        void on(){
+            gpio_set_level(pin,1);
+        }
 
-const gpio_num_t LED_MATRIX[] = {LED0, LED1, LED2, LED3, LED4, LED5, LED6, LED7, LED8};
+        void off(){
+            gpio_set_level(pin,0);
+        }
+        void toggle(){
+            if(gpio_get_level(pin)){
+                gpio_set_level(pin,0);
+            }
+            else{
+                gpio_set_level(pin,1);
+            }
+        }
+};
+
+inline LED* LED0 = new LED(GPIO_NUM_23);
+inline LED* LED1 = new LED(GPIO_NUM_17);
+inline LED* LED2 = new LED(GPIO_NUM_16);
+inline LED* LED3 = new LED(GPIO_NUM_13);
+inline LED* LED4 = new LED(GPIO_NUM_14);
+inline LED* LED5 = new LED(GPIO_NUM_26);
+inline LED* LED6 = new LED(GPIO_NUM_25);
+inline LED* LED7 = new LED(GPIO_NUM_33);
+inline LED* LED8 = new LED(GPIO_NUM_32);
+
+
+inline LED* LED_MATRIX[9] = {LED0, LED1, LED2, LED3, LED4, LED5, LED6, LED7, LED8};
 
 #endif

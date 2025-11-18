@@ -3,32 +3,38 @@
 
 #include <Arduino.h>
 #include <stdio.h>
+#include "swt_matrix.h"
+#include "led_matrix.h"
+
+#define TIME_ON 500
+#define TIME_OFF 1000
 
 class level {
     private:
-        gpio_num_t my_led;
-        gpio_num_t my_swt;
+        LED* my_led;
+        SWT* my_swt;
         bool led_value;
         bool stw_value;
     
     public:
-        level(gpio_num_t my_led, gpio_num_t my_swt){
-            led_value = 0;
-            stw_value = 0;
-        };
+        level(LED* my_led = LED0, SWT* my_swt = SWT0): my_led(my_led),my_swt(my_swt){}
+        virtual ~level();
 
-        bool get_value_swt();
+        SWT* get_swt();
 
         virtual void show();
 };
 
 class level_container : level {
     public:
-        level_container();
+        int stage = 0;
+        level* container [99];
+
+        ~level_container();
+
         void create_next();
         void show();
-        bool check(gpio_num_t* swt,int stage);
-        int get_stage();
+        bool check();
 };
 
 #endif

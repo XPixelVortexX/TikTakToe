@@ -4,14 +4,28 @@
 #include "gpio_setup.h"
 #include "game_mechanics.h"
 
-gpio_num_t* level::get_swt()
+level::~level()
 {
-    return &my_swt;
+    //default
+}
+
+level_container::~level_container()
+{
+    for(int i=0;i<stage;i++)
+    {
+        delete container[i];
+    }
+}
+
+SWT* level::get_swt()
+{
+    return my_swt;
 }
 
 void level_container::create_next()
 {
-    container [stage] = new level(LED_MATRIX[1],SWT_MATRIX[1]);
+    int rand = esp_random() % 8;
+    container [stage] = new level(LED_MATRIX[rand],SWT_MATRIX[rand]);
     stage++;
 }
 
@@ -26,9 +40,9 @@ bool level_container::check()
 
 void level::show()
 {
-    gpio_set_level(my_led,1);
+    my_led->on();
     delay(TIME_ON);
-    gpio_set_level(my_led,0);
+    my_led->off();
     delay(TIME_OFF);
 }
 

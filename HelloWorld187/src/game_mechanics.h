@@ -3,7 +3,8 @@
 
 #include <Arduino.h>
 #include <stdio.h>
+#include "swt_matrix.h"
 
-gpio_num_t* check_inputs();
+SWT* check_inputs();
 
 #endif

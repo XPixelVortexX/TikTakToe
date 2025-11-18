@@ -6,6 +6,7 @@
 #include "swt_matrix.h"
 #include "level.h"
 #include "game_mechanics.h"
+#include "animations.h"
 
 level_container* Game;
 
@@ -26,27 +27,21 @@ void test()
       Serial.printf("PIN: %d  ",i);
       Serial.printf("Value: %d  ",value);
 
-      gpio_set_level(LED_MATRIX[i],value);
-      pressed = gpio_get_level(SWT_MATRIX[i]);
+      LED_MATRIX[i]->toggle();
+
+      pressed = SWT_MATRIX[i]->read();
 
       Serial.printf("Pressed: %d\n",pressed);
     }
-    value = !value;
+    value != value;
   }
 }
 
 void game_loop() {
   while(true){
-  gpio_num_t* current_input = nullptr;
-
   Game->create_next();                              //Level update
-  
-  for(int i=0;i<Game->get_stage();i++) {           
-    while(current_input = nullptr) {                //Wait for input
-      current_input = check_inputs();
-    }
-    if(!Game->check(current_input,i))return;        //fail is restart   
-  }
+    
+  if(!Game->check())return;                         //fail is restart   
   }
 }
 
