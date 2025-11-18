@@ -39,11 +39,17 @@ void test()
 
 void normal_game() {
   Game = new level_container();
+  anim_normal_game();
+
   while(true){
   Game->create_next();                              //Level update
-    
-  if(!Game->check())break;                         //fail is restart   
+  
+  Game->show();                                     // Show next level
+
+  if(!Game->check())break;                          //fail is restart   
   }
+
+  anim_fail();
   delete Game;
 }
 

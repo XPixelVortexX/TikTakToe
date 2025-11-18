@@ -5,5 +5,6 @@
 #include <stdio.h>
 
 void anim_fail();
+void anim_normal_game();
 
 #endif

@@ -5,7 +5,11 @@
 
 SWT* check_inputs() {
     for(int i=0; i<9;i++) {
-        if(SWT_MATRIX[i]->read()) return SWT_MATRIX[i];
+        if(SWT_MATRIX[i]->read())
+        {
+            delay(50);
+            return SWT_MATRIX[i];
+        }
     }
     return nullptr;
 }
