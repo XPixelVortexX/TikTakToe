@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <stdio.h>
+#include "TM1637.h"
 
 #include "gpio_setup.h"
 #include "led_matrix.h"
@@ -7,14 +8,16 @@
 #include "level.h"
 #include "game_mechanics.h"
 #include "animations.h"
+#include "display.h"
 
 level_container* Game;
 level_container* Player1;
 level_container* Player2;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   setup_pins();
+  display_setup();
 }
 
 void test()
@@ -83,7 +86,7 @@ void mult_game()
 void loop() {
   //test();
 
-  normal_game();
+  //normal_game();
 
   //mult_game();
 }
