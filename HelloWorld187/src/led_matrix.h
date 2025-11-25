@@ -8,22 +8,27 @@ class LED
 {
     public:
         gpio_num_t pin;
+        bool state = 0;
         LED(gpio_num_t pin):pin(pin){}     
         
         void on(){
             gpio_set_level(pin,1);
+            state = 1;
         }
 
         void off(){
             gpio_set_level(pin,0);
+            state = 0;
         }
 
         void toggle(){
-            if(gpio_get_level(pin)){
+            if(state){
                 gpio_set_level(pin,0);
+                state = 0;
             }
             else{
                 gpio_set_level(pin,1);
+                state = 1;
             }
         }
 };

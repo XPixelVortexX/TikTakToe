@@ -27,7 +27,7 @@ void test()
       delay(500);
 
       Serial.printf("PIN: %d  ",i);
-      Serial.printf("Value: %d  ",value);
+      Serial.printf("Value: %d  ",(int)value);
 
       LED_MATRIX[i]->toggle();
 
@@ -35,7 +35,7 @@ void test()
 
       Serial.printf("Pressed: %d\n",pressed);
     }
-    value != value;
+    value = !value;
   }
 }
 
