@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "led_matrix.h"
 #include "display.h"
+#include "ring.h"
 
 void anim_fail();
 void anim_normal_game();

@@ -11,8 +11,13 @@ void P1P2_anim()
 
 void anim_fail()
 {
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 3; i++)
     {
+        ring_red();
+        LED_MATRIX_TOGGLE();
+        delay(100);
+
+        ring_off();
         LED_MATRIX_TOGGLE();
         delay(100);
     }
