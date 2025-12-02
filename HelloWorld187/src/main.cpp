@@ -86,6 +86,7 @@ void mult_game()
 }
 
 void loop() {
+  anim_mult_game();
   //test();
 
   //normal_game();

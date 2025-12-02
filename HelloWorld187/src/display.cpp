@@ -1,8 +1,8 @@
 #include "display.h"
 
+ChipNorm_TM1637 display(CLK_PIN,DIO_PIN);
 
 void display_setup() {
-    ChipNorm_TM1637 display(CLK_PIN,DIO_PIN);
     display.setBrightness(7);
     display.clear();
     display.write_numbers(1,2,3,4);

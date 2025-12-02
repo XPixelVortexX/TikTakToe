@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <stdio.h>
 #include "led_matrix.h"
+#include "display.h"
 
 void anim_fail();
 void anim_normal_game();
