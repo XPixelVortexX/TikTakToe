@@ -5,7 +5,6 @@ ChipNorm_TM1637 display(CLK_PIN,DIO_PIN);
 void display_setup() {
     display.setBrightness(7);
     display.clear();
-    display.write_numbers(1,2,3,4);
 }
 
 void update_score(level_container* p1,level_container* p2) {
