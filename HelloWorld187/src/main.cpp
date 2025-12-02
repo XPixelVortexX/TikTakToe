@@ -86,10 +86,11 @@ void mult_game()
 }
 
 void loop() {
-  anim_mult_game();
+  int sel = mode_select();        //Idle
+
   //test();
 
-  //normal_game();
-
-  //mult_game();
+  if(sel == 0) normal_game();
+  if(sel == 1) mult_game();
+  if(sel == 2) anim_eyer();
 }

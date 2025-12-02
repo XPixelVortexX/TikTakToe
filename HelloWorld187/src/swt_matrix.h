@@ -23,6 +23,7 @@ inline SWT* SWT5 = new SWT(GPIO_NUM_35);
 inline SWT* SWT6 = new SWT(GPIO_NUM_34);
 inline SWT* SWT7 = new SWT(GPIO_NUM_39);
 inline SWT* SWT8 = new SWT(GPIO_NUM_36);
+inline SWT* SEL = new SWT(GPIO_NUM_2);
 
 inline SWT* SWT_MATRIX[9] = {SWT0,SWT1,SWT2,SWT3,SWT4,SWT5,SWT6,SWT7,SWT8};
 

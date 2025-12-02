@@ -9,5 +9,8 @@
 void anim_fail();
 void anim_normal_game();
 void anim_mult_game();
+void P1_anim();
+void P1P2_anim();
+void anim_eyer();
 
 #endif
