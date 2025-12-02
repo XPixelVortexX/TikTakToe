@@ -2,13 +2,16 @@
 #define DISPLAY_H
 
 #include <Arduino.h>
-#include "TM1637.h"
+#include "ChipNorm_TM1637.h"
 
-#define CLK 17
-#define DIO 16
+#include "level.h"
 
-extern TM1637 display;
+#define CLK_PIN 15
+#define DIO_PIN 0
+
+extern ChipNorm_TM1637 display;
 
 void display_setup();
+void update_score(level_container* p1,level_container* p2);
 
 #endif

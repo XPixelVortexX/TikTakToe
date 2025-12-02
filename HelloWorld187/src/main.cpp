@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <stdio.h>
-#include "TM1637.h"
 
 #include "gpio_setup.h"
 #include "led_matrix.h"
@@ -48,6 +47,7 @@ void normal_game() {
 
   while(true){
     Game->create_next();                              // Level update
+    update_score(Game,nullptr);
     
     Game->show();                                     // Show next level
 
@@ -65,13 +65,15 @@ void mult_game()
   anim_mult_game();
 
   while(true){
-    Player1->create_next();                       
+    Player1->create_next();
+    update_score(Player1,Player2);                       
     
     Player1->show();                                     
 
     if(!Player1->check())break;
 
-    Player2->create_next();                       
+    Player2->create_next();
+    update_score(Player1,Player2);                         
     
     Player2->show();                                     
 
