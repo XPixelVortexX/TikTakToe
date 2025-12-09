@@ -13,12 +13,12 @@ void anim_fail()
 {
     for(int i = 0; i < 3; i++)
     {
-        ring_red();
-        LED_MATRIX_TOGGLE();
+        //ring_red();
+        LED_MATRIX_ON();
         delay(100);
 
-        ring_off();
-        LED_MATRIX_TOGGLE();
+        //ring_off();
+        LED_MATRIX_OFF();
         delay(100);
     }
     LED_MATRIX_OFF();    
@@ -33,7 +33,11 @@ void anim_normal_game()
             if (i == 4) continue;
             LED_MATRIX[i]->toggle();        
         }
-        delay(1000);
+
+        //ring_blue();
+        delay(200);
+        //ring_off();
+        delay(800);
     }
     LED_MATRIX_OFF();
     display.clear();
@@ -82,9 +86,12 @@ void anim_eyer()
     {
         LED_MATRIX_TOGGLE();
         display.write_manuell(0xFF,0xFF,0xFF,0xFF);
+        //ring_on();
         delay(50);
-         LED_MATRIX_TOGGLE();
+        
+        LED_MATRIX_TOGGLE();
         display.write_manuell(0,0,0,0);
+        //ring_off();
         delay(50);
     }
 }
